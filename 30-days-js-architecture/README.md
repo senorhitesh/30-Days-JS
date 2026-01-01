@@ -20,7 +20,7 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 
 | Day | Project Name | Key Concepts Learned | Status |
 | :--- | :--- | :--- | :--- |
-| **01** | [Inventory Analyzer](./src/day01-inventory/) | `.filter()`, `.map()`, Pure Functions | ✅ Completed |
+| **01** | [Inventory Analyzer](./src/day01-inventory-Manager/) | `.filter()`, `.map()`, Pure Functions | ✅ Completed |
 | **02** | Shopping Cart Logic | State Management, Immutability | ⏳ Pending |
 | **03** | Data Sanitizer | String Manipulation, Regex | 🔒 Locked |
 | **...** | ... | ... | ... |
