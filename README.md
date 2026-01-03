@@ -21,7 +21,7 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | Day | Project Name | Key Concepts Learned | Status |
 | :--- | :--- | :--- | :--- |
 | **01** | [Inventory Analyzer](../src/day01-inventory_analyser/)| `.filter()`, `.map()`, Pure Functions | ✅ Completed |
-| **02** | Shopping Cart Logic | State Management, Immutability | ⏳ Pending |
+| **02** | [Shopping Cart Logic](../src/day02-cart/) | State Management, Immutability | ✅ Completed |
 | **03** | Data Sanitizer | String Manipulation, Regex | 🔒 Locked |
 | **...** | ... | ... | ... |
 
