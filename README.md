@@ -22,7 +22,7 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | :--- | :--- | :--- | :--- |
 | **01** | [Inventory Analyzer](../src/day01-inventory_analyser/)| `.filter()`, `.map()`, Pure Functions | ✅ Completed |
 | **02** | [Shopping Cart Logic](../src/day02-cart/) | State Management, Immutability | ✅ Completed |
-| **03** | Data Sanitizer | String Manipulation, Regex | 🔒 Locked |
+| **03** | [Data Sanitizer](../src/day03-DataSanatizer/) | String Manipulation, Regex | ✅ Completed |
 | **...** | ... | ... | ... |
 
 *(I will update this table daily with links to the specific folder)*
