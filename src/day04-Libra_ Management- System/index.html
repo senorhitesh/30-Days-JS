@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(24, 24, 24);">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Library System (OOP)</title>
+    <style>
+        /* Basic clean layout */
+        body { font-family: sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; color: #f3f4f6; background-color: black; }
+        .input-group { margin-bottom: 1rem; display: flex; gap: 10px; }
+        input { padding: 8px; flex: 1; border: 1px solid #ccc; border-radius: 4px; }
+        button#add-btn { padding: 8px 16px; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button#add-btn:hover { background: #1d4ed8; }
+        
+        /* Style for the list items we will generate in JS */
+        ul { list-style: none; padding: 0; }
+        li { background: #525252; padding: 1rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <h1>📚 OOP Library Manager</h1>
+
+    <div class="input-group">
+        <input type="text" id="title" placeholder="Book Title">
+        <input type="text" id="author" placeholder="Author Name">
+        <input type="text" id="isbn" placeholder="ISBN (Unique ID)">
+        <button id="add-btn">Add Book</button>
+    </div>
+
+    <h3>Current Collection</h3>
+    <ul id="book-list">
+        </ul>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
