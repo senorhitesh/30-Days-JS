@@ -1,4 +1,4 @@
-import { Library } from "./logic.js"; // Make sure filename matches exactly (case sensitive!)
+import { Library } from "./library.js"; // Make sure filename matches exactly (case sensitive!)
 import { Book } from "./book.js";
 
 // 1. INSTANTIATE THE CLASS (Build the object)
