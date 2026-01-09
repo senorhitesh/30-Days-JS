@@ -52,4 +52,10 @@ searchBtn.addEventListener("click", async () => {
         card.style.display = "none";
         alert("User not found!");
     }
-});
+}); 
+
+usernameInput.addEventListener("keydown", (e)=>{
+    if(e.key === "Enter"){
+        searchBtn.click();
+    }
+})
