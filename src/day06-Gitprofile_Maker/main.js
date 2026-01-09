@@ -1,4 +1,5 @@
 import { GithubAPI } from './api.js';
+import { debounceAPI } from '../day07-Debouncer/debounce.js';
 
 // 1. Initialize the API Service
 const api = new GithubAPI();
@@ -17,9 +18,10 @@ const following = document.getElementById("following");
 const repos = document.getElementById("repos");
 
 // 3. Add Event Listener
-searchBtn.addEventListener("click", async () => {
-    const username = usernameInput.value;
 
+    
+   async function search(){
+    const username = usernameInput.value;
     if (username === "") {
         alert("Please enter a username!");
         return;
@@ -28,34 +30,29 @@ searchBtn.addEventListener("click", async () => {
     // A. Show "Loading..." state (Optional but professional)
     searchBtn.textContent = "Searching...";
     searchBtn.disabled = true;
-
-    // B. Fetch Data (WAIT here)
+    try{
     const user = await api.getUser(username);
-
-    // C. Reset Button
-    searchBtn.textContent = "Search";
-    searchBtn.disabled = false;
-
-    // D. Update UI
-    if (user) {
-        // Success: Fill data and show card
+    console,log(user)
+    if(user){
+        console.log(user)
         card.style.display = "block";
-        
         avatar.src = user.avatar_url;
         name.textContent = user.name || user.login; // Fallback to login if name is null
         bio.textContent = user.bio || "No bio available";
         followers.textContent = user.followers;
         following.textContent = user.following;
         repos.textContent = user.public_repos;
-    } else {
-        // Failure: Hide card and alert
-        card.style.display = "none";
-        alert("User not found!");
     }
-}); 
+    else {
+     throw new Error(`Git ka koi banda is naam se exist  nahi karta`)
+    }
+    }
+    catch(error){
+     console.log(error.message)
+    }
+    
+   }
 
-usernameInput.addEventListener("keydown", (e)=>{
-    if(e.key === "Enter"){
-        searchBtn.click();
-    }
-})
+    searchBtn.addEventListener("click", search); 
+    const debounce = debounceAPI(search,500)
+    usernameInput.addEventListener("keydown",debounce )
