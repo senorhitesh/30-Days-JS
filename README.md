@@ -23,7 +23,13 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | **01** | [Inventory Analyzer](../src/day01-inventory_analyser/)| `.filter()`, `.map()`, Pure Functions | ✅ Completed |
 | **02** | [Shopping Cart Logic](../src/day02-cart/) | State Management, Immutability | ✅ Completed |
 | **03** | [Data Sanitizer](../src/day03-DataSanatizer/) | String Manipulation, Regex | ✅ Completed |
-| **...** | ... | ... | ... |
+| **04** | [Managment System](../src/day04-Libra_ Managment-System/) | ES6+ Modules, Import & Export| ✅ Completed |
+| **05** | [Notes App](../src/day05-Notes_app/) | Local Stroage | ✅ Completed |
+| **06** | [Gitprofile founder](../src/day06-Gitprofile_Maker/) | API call, try & catch method | ✅ Completed |
+| **07** | [Debounce](../src/day07-Debouncer/) | Debounce & Optimization | ✅ Completed |
+| **08** | [Parallel-API](../src/day08-Parallel-API-Calls/) | Promise.allSettled(), Speed  | ✅ Completed |
+| **09** | [Infinite_Image_Gallery](../src/Infinite_Image_Gallery/) | Pagination | ✅ Completed |
+| **10** | [](../src/day10-/) | ... | ✅ Completed |
 
 *(I will update this table daily with links to the specific folder)*
 

@@ -1,4 +1,4 @@
-const page = 1;
+const  page      = 1;
 const  container = document.querySelector(".container");
 const  URL       = "https://picsum.photos/v2/list?page={${page}}&limit={10}"
 let    isLoading = false;

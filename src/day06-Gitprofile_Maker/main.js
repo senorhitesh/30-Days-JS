@@ -32,7 +32,7 @@ const repos = document.getElementById("repos");
     searchBtn.disabled = true;
     try{
     const user = await api.getUser(username);
-    console,log(user)
+    console.log(user)
     if(user){
         console.log(user)
         card.style.display = "block";
