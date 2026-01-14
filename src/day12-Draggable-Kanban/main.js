@@ -12,11 +12,9 @@ tasks.forEach(task => {
 });
 
 columns.forEach(column => {
-    
-    
+
     column.addEventListener("dragover", (e) => {
         e.preventDefault(); 
-        
         column.style.backgroundColor = "#333";
     });
 
@@ -28,9 +26,7 @@ columns.forEach(column => {
        
          e.preventDefault();
         const currentTask = document.querySelector(".dragging");
-        
         column.appendChild(currentTask);
-        
         column.style.backgroundColor = "";
     });
 });
