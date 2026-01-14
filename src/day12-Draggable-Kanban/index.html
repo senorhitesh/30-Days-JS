@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 10: Weather</title>
+    <style>
+        body { font-family: sans-serif; background: linear-gradient(to right, #2b2b2b, #181818); }
+        .board{
+            display: flex;
+            justify-content: space-between;
+            color: aliceblue;
+                        height: 100vh;
+        }
+/* 1. General Reset and Dark Mode Look */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e1e; /* Dark background */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+    /* 2. The Board Container */
+    .board {
+    display: flex;
+    gap: 20px; /* Space between columns */
+    width: 90%;
+    max-width: 1200px;
+    }
+
+    /* 3. The Columns (The Drop Zones) */
+    .column {
+    background-color: #2c2c2c; /* Slightly lighter than body */
+    border-radius: 8px;
+    padding: 15px;
+    flex: 1; /* All columns take equal width */
+    min-height: 400px; /* Height ensures you can drop items even if empty */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .column h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    }
+
+    /* 4. The Tasks (The Draggable Items) */
+    .task {
+    background-color: #3a3a3a;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: grab; /* Shows the hand icon */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+    .task:hover {
+    background-color: #444; 
+    }
+
+    /* 5. The "Dragging" Effect */
+    /* This class is added via JS when you pick up an item */
+    .task.dragging {
+    opacity: 0.5; /* Make it ghost-like */
+    cursor: grabbing;
+    border:2px solid #06ffbd;
+    }
+            
+    </style>
+</head>
+<body>
+<div class="board">
+  
+  <div class="column" id="todo">
+    <h3>To Do</h3>
+    <div class="task" draggable="true" id="task-1">Fix Navigation Bug</div>
+    <div class="task" draggable="true" id="task-2">Design Homepage</div>
+  </div>
+
+  <div class="column" id="progress">
+    <h3>In Progress</h3>
+  </div>
+
+  <div class="column" id="done">
+    <h3>Done</h3>
+  </div>
+
+</div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
