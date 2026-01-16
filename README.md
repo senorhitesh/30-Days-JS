@@ -29,7 +29,11 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | **07** | [Debounce](../src/day07-Debouncer/) | Debounce & Optimization | ✅ Completed |
 | **08** | [Parallel-API](../src/day08-Parallel-API-Calls/) | Promise.allSettled(), Speed  | ✅ Completed |
 | **09** | [Infinite_Image_Gallery](../src/Infinite_Image_Gallery/) | Pagination | ✅ Completed |
-| **10** | [](../src/day10-/) | ... | ✅ Completed |
+| **10** | [](../src/day10-Weather-App/) | Api Call  | ✅ Completed |
+| **11** | [](../src/day11-LocalStroage-Manager/) | LocalStroage| ✅ Completed |
+| **12** | [](../src/day12-Draggble-Kanban/) | DOM Manupulation  | ✅ Completed |
+| **13** | [](../src/day13-Pomodoro-Timer/) | Time intervals, State Management, and Audio feedback.    | ✅ Completed |
+| **14** | [](../src/day10-Weather-App/) | DOM Events (input), String Matching, and calculating WPM | ✅ Completed |
 
 *(I will update this table daily with links to the specific folder)*
 
