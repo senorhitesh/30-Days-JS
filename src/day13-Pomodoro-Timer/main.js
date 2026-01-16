@@ -1,6 +1,8 @@
 let timeLeft = 1500; 
 let interval;
 
+const alarmSound = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
+
 const startBtn = document.querySelector("#start-btn")
 const resetBtn = document.querySelector("#reset-btn")
 
@@ -25,6 +27,7 @@ const startTimer = () => {
         updateTimer();
 
         if (timeLeft === 0) {
+            alarmSound.play();
             clearInterval(interval);
             alert("Time Up");
         }
