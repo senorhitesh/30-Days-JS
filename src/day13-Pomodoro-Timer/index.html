@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 13: Weather</title>
+    <style>
+/* 1. General Reset and Dark Mode Look */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e1e; /* Dark background */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding-top: 50px;
+}
+:root {
+  --primary-color: #ba4949; /* Standard Pomodoro Red */
+  --secondary-color: #38858a; /* For breaks */
+  --bg-color: #1e2124;
+  --container-bg: #2d3136;
+  --text-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.timer-container {
+  background-color: var(--container-bg);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  transition: background-color 0.5s ease;
+}
+
+/* --- Mode Selectors (Work, Short Break, Long Break) --- */
+.modes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.modes button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.modes button:hover {
+  color: white;
+}
+
+.modes button.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: bold;
+}
+
+/* --- The Big Timer Display --- */
+.time-display {
+  font-size: 6rem;
+  font-weight: bold;
+  margin: 20px 0;
+  
+  /* CRITICAL: Keeps numbers same width so layout doesn't wiggle */
+  font-variant-numeric: tabular-nums; 
+  letter-spacing: 2px;
+}
+
+/* --- Control Buttons (Start, Reset) --- */
+.controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.controls button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+#start-btn {
+  background-color: white;
+  color: var(--primary-color);
+  flex-grow: 2; /* Makes start button bigger */
+}
+
+#start-btn:active {
+  transform: translateY(4px); /* Button press effect */
+}
+
+#reset-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#reset-btn:hover {
+  border-color: white;
+}
+    </style>
+</head>
+<body>
+<div class="timer-container">
+  <div class="modes">
+    <button id="work-btn" class="active">Work</button>
+    <button id="short-break-btn">Short Break</button>
+    <button id="long-break-btn">Long Break</button>
+  </div>
+
+  <div class="time-display" id="timer">25:00</div>
+
+  <div class="controls">
+    <button id="start-btn">Start</button>
+    <button id="reset-btn">Reset</button>
+  </div>
+</div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
+
