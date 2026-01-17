@@ -1,0 +1,28 @@
+*{
+font-family:"Onest" ;
+padding: 0px;
+margin: 0px;
+box-sizing: border-box;
+}
+:root{
+    --bgColor: #333;
+    --textPrimary : #f5f5f5;
+    --textSecondary: #666;
+    --primaryColor:#fd4;
+    --mdWeight:400;
+    --boldWeight:700;
+
+}
+                    
+body{
+    background-color: var(--bgColor);
+    color: var(--textPrimary);
+}
+body h1{
+    color: var(--primaryColor);
+    font-weight: var(--mdWeight)
+}
+.main{
+    width: 1300px;
+    margin: 30px auto;
+}

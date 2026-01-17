@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    body{
+      justify-content: center;
+      min-height: 100vh;
+
+      width: 100%;
+
+    }
+    .hidden{
+      opacity: 0;
+      width: 500px;
+      height: 500px;
+      background-color: aqua;
+      margin: 6px;
+      filter: blur(5px);
+      transform: translateY(-100%);
+      transition: all 1s;
+    }
+    .show{
+     opacity: 1; filter: blur(0); transform: translateX(0); 
+    }
+    .scrollableArea{
+      display: flex;
+       flex-wrap:wrap;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body >
+  <div class="scrollableArea ">
+   <div class="hidden div"></div>
+   <div class="hidden div"></div>
+   <div class="hidden div"></div>
+   <div class="hidden div"></div>
+   <div class="hidden div"></div>
+   <div class="hidden div"></div>
+   <div class="hidden div"></div>
+   <div class="hidden div"></div>
+
+  </div>
+  <script src="main.js"></script>
+</div>
+</body>
+</html>
