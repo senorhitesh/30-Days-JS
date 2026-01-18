@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+body {
+  background: #111;
+  color: white;
+  min-height: 100vh;
+}
+
+.booth {
+  padding: 20px;
+}
+
+video {
+  width: 400px;
+  border-radius: 8px;
+}
+
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+<body>
+<div class="booth">
+  <video class="player" id="video" autoplay></video>
+  
+  <div class="controls">
+    <button id="snap-btn" class="snap-btn">📸 Snap</button>
+  </div>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <div class="strip" id="strip"></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
