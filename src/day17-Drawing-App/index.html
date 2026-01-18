@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      position: relative;
+    }
+    .toolbar{
+      position: absolute;
+      top: 0;
+    }
+    .content{
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+<div class="content">
+    <div class="toolbar">
+    <input type="color" name="color" id="color">
+    <input type="range" name="range" id="range">
+    <button class="cb">Clear Board</button>
+  </div>
+  <div class="drawingboard">
+    <canvas id="canvas"></canvas>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
