@@ -7,26 +7,31 @@ const inventory = [
     { id: 4, name: "Monitor", price: 300, stock: 2 },
 ];
 
-const run = () => {
-     
-    let reOrderBtn = document.querySelector("#check-btn");
-    let appContainer = document.querySelector("#app");
-    
-    reOrderBtn.addEventListener("click", function(){
-    const reorderNames = getReorderList(inventory);
-    appContainer.innerHTML=``;
+const renderRestockList = (productNames, container) => {
+    container.innerHTML = ``;
     const ul = document.createElement('ul');
 
-    reorderNames.forEach(productName => {
-    const li = document.createElement("li");
-    li.textContent = `⚠️ Restock: ${productName}`;
-    li.classList.add("low-stock-alert");
-    ul.appendChild(li);   
+    productNames.forEach(productName => {
+        const li = document.createElement("li");
+        li.textContent = `⚠️ Restock: ${productName}`;
+        li.classList.add("low-stock-alert");
+        ul.appendChild(li);
     });
-    
-    appContainer.appendChild(ul)
-    })
 
+    container.appendChild(ul);
+}
+
+const run = () => {
+    // 2. Safety: Select elements inside the function to ensure the DOM is ready
+    const reOrderBtn = document.querySelector("#check-btn");
+    const appContainer = document.querySelector("#app");
+
+    reOrderBtn.addEventListener("click", function() {
+        // Get data
+        const reorderNames = getReorderList(inventory);
+        // Update UI
+        renderRestockList(reorderNames, appContainer);
+    });
 };
 
 run();
