@@ -19,7 +19,7 @@ function generateData(count) {
     });
 }
 
-let allData = generateData(100000);
+let allData = generateData(1000);
 let filteredData = allData; // Currently visible data (initially all)
 
 
@@ -60,9 +60,21 @@ function renderVirtualList() {
     rowCountLabel.innerText = `Showing ${filteredData.length.toLocaleString()} rows`;
 }
 
+function debounce(fn, delay = 300) {
+  let timeoutId;
 
-searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
+  return function (...args) {
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+
+function handleSearch(e){
+        const term = e.target.value.toLowerCase();
     
     filteredData = allData.filter(user => 
         user.name.toLowerCase().includes(term) || 
@@ -71,7 +83,10 @@ searchInput.addEventListener('input', (e) => {
 
     scrollContainer.scrollTop = 0;
     renderVirtualList();
-});
+}
+let debouncing = debounce(handleSearch,300)
+let searching = searchInput.addEventListener('input', debouncing);
+
 
 scrollContainer.addEventListener('scroll', renderVirtualList);
 renderVirtualList(); // Render first frame
