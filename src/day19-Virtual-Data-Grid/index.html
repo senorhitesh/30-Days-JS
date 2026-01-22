@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 19: Million-Row Virtual Scroller</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --row-height: 40px; /* MUST match JS config */
+            --accent-color: #3b82f6;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #app {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            height: 90vh;
+        }
+
+        /* --- Controls Section --- */
+        .controls {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background-color: #262626;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .stats {
+            padding: 10px;
+            background: #333;
+            border-radius: 5px;
+            min-width: 150px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* --- The Virtual Scroll Container (The Window) --- */
+        #scroll-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            position: relative; /* Critical for absolute positioning inside */
+            background-color: #262626;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            /* Scrollbar styling */
+            scrollbar-width: thin;
+            scrollbar-color: #555 #262626;
+        }
+
+        /* --- The Phantom Spacer (Sets the scrollbar size) --- */
+        #total-height-spacer {
+            width: 1px;
+            /* Height will be set by JS dynamically */
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* --- The Actual Visible Rows --- */
+        #visible-content {
+            position: absolute; /* Floating inside the container */
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* Transform will be applied by JS */
+            will-change: transform; 
+        }
+
+        /* --- Individual Row Styling --- */
+        .row {
+            height: var(--row-height);
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: 1px solid #333;
+            box-sizing: border-box; /* Includes border in height */
+        }
+
+        .row:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .row span {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .row .id-col { flex: 0 0 80px; color: #777; }
+        .row .role-col { flex: 0 0 100px; font-weight: bold; color: var(--accent-color); }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div class="controls">
+            <input type="text" id="search-input" placeholder="Search by name , role or status" autocomplete="off">
+            <div class="stats" id="row-count">Loading...</div>
+        </div>
+
+        <div id="scroll-container">
+            <div id="total-height-spacer"></div>
+
+            <div id="visible-content">
+
+                </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
