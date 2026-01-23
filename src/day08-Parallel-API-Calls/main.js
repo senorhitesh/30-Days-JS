@@ -1,9 +1,5 @@
 
 
-
-
-
-
 function fetchProduct(id) {
   return new Promise((resolve) => {
     setTimeout(() => resolve({ id, name: "Laptop", price: 999 }), 300);

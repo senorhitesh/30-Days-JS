@@ -74,11 +74,11 @@ function debounce(fn, delay = 300) {
 
 
 function handleSearch(e){
-        const term = e.target.value.toLowerCase();
+    const term = e.target.value.toLowerCase();
     
     filteredData = allData.filter(user => 
-        user.name.toLowerCase().includes(term) || 
-        user.role.toLowerCase().includes(term)
+    user.name.toLowerCase().includes(term) || 
+    user.role.toLowerCase().includes(term)
     );
 
     scrollContainer.scrollTop = 0;
