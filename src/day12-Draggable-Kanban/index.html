@@ -2,201 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban Board</title>
+    <title>Day 10: Weather</title>
     <style>
-        /* General Reset and Dark Mode Look */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1e1e1e;
-            color: white;
+        body { font-family: sans-serif; background: linear-gradient(to right, #2b2b2b, #181818); }
+        .board{
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding-top: 50px;
+            justify-content: space-between;
+            color: aliceblue;
+                        height: 100vh;
+        }
+/* 1. General Reset and Dark Mode Look */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e1e; /* Dark background */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+    /* 2. The Board Container */
+    .board {
+    display: flex;
+    gap: 20px; /* Space between columns */
+    width: 90%;
+    max-width: 1200px;
+    }
+
+    /* 3. The Columns (The Drop Zones) */
+    .column {
+    background-color: #2c2c2c; /* Slightly lighter than body */
+    border-radius: 8px;
+    padding: 15px;
+    flex: 1; /* All columns take equal width */
+    min-height: 400px; /* Height ensures you can drop items even if empty */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .column h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    }
+
+    /* 4. The Tasks (The Draggable Items) */
+    .task {
+    background-color: #3a3a3a;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: grab; /* Shows the hand icon */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        /* The Board Container */
-        .board {
-            display: flex;
-            gap: 20px;
-            width: 90%;
-            max-width: 1200px;
-        }
+    .task:hover {
+    background-color: #444; 
+    }
 
-        /* The Columns (The Drop Zones) */
-        .column {
-            background-color: #2c2c2c;
-            border-radius: 8px;
-            padding: 15px;
-            flex: 1;
-            min-height: 400px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
+    /* 5. The "Dragging" Effect */
+    /* This class is added via JS when you pick up an item */
+    .task.dragging {
+    opacity: 0.5; /* Make it ghost-like */
+    cursor: grabbing;
+    border:2px solid #06ffbd;
+    }
+    /* 1. Default (or Todo) - Yellow */
+/* This targets any .task inside the id="todo" column */
+#todo .task {
+  background-color: #f1c40f; /* Nice Yellow */
+  color: black; /* Black text is easier to read on yellow */
+  border-left: 5px solid #b7950b; /* Darker yellow accent */
+}
 
-        .column h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            text-align: center;
-            border-bottom: 2px solid #444;
-            padding-bottom: 10px;
-        }
+/* 2. In Progress - Red (Orange-Red) */
+#progress .task {
+  background-color: #e74c3c; /* Red */
+  color: white;
+  border-left: 5px solid #c0392b;
+}
 
-        /* The Tasks (The Draggable Items) */
-        .task {
-            background-color: #3a3a3a;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            cursor: grab;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .task:hover {
-            background-color: #444;
-        }
-
-        /* The "Dragging" Effect */
-        .task.dragging {
-            opacity: 0.5;
-            cursor: grabbing;
-            border: 2px solid #06ffbd;
-        }
-
-        /* Column-specific task colors */
-        #todo .task {
-            background-color: #f1c40f;
-            color: black;
-            border-left: 5px solid #b7950b;
-        }
-
-        #progress .task {
-            background-color: #e74c3c;
-            color: white;
-            border-left: 5px solid #c0392b;
-        }
-
-        #done .task {
-            background-color: #2ecc71;
-            color: white;
-            border-left: 5px solid #27ae60;
-            text-decoration: line-through;
-            opacity: 0.8;
-        }
+/* 3. Done - Green */
+#done .task {
+  background-color: #2ecc71; /* Green */
+  color: white;
+  border-left: 5px solid #27ae60;
+  text-decoration: line-through; /* Bonus: Cross out the text! */
+  opacity: 0.8; /* Slightly faded to show it's finished */
+}
+            
     </style>
 </head>
 <body>
-    <div class="board">
-        <div class="column" id="todo">
-            <h3>To Do</h3>
-            <div class="task" draggable="true" id="task-1">Fix Navigation Bug</div>
-            <div class="task" draggable="true" id="task-2">Design Homepage</div>
-        </div>
+<div class="board">
+  
+  <div class="column" id="todo">
+    <h3>To Do</h3>
+    <div class="task" draggable="true" id="task-1">Fix Navigation Bug</div>
+    <div class="task" draggable="true" id="task-2">Design Homepage</div>
+  </div>
 
-        <div class="column" id="progress">
-            <h3>In Progress</h3>
-        </div>
+  <div class="column" id="progress">
+    <h3>In Progress</h3>
+  </div>
 
-        <div class="column" id="done">
-            <h3>Done</h3>
-        </div>
-    </div>
+  <div class="column" id="done">
+    <h3>Done</h3>
+  </div>
 
-    <script>
-        const STORAGE_KEY = "kanban-state";
-        const columns = document.querySelectorAll(".column");
-
-        /* ---------------- STORAGE HELPERS ---------------- */
-        async function saveToStorage(key, value) {
-            try {
-                await window.storage.set(key, JSON.stringify(value));
-            } catch (error) {
-                console.error("Error saving to storage:", error);
-            }
-        }
-
-        async function getFromStorage(key) {
-            try {
-                const result = await window.storage.get(key);
-                return result ? JSON.parse(result.value) : null;
-            } catch (error) {
-                console.log("No saved state found or error loading:", error);
-                return null;
-            }
-        }
-
-        /* ---------------- DRAG LOGIC ---------------- */
-        function addDragAndDrop() {
-            const tasks = document.querySelectorAll(".task");
-
-            tasks.forEach(task => {
-                task.addEventListener("dragstart", () => {
-                    task.classList.add("dragging");
-                });
-
-                task.addEventListener("dragend", () => {
-                    task.classList.remove("dragging");
-                    saveState();
-                });
-            });
-
-            columns.forEach(column => {
-                column.addEventListener("dragover", e => {
-                    e.preventDefault();
-                });
-
-                column.addEventListener("drop", e => {
-                    e.preventDefault();
-                    const draggingTask = document.querySelector(".dragging");
-                    if (draggingTask) {
-                        column.appendChild(draggingTask);
-                    }
-                });
-            });
-        }
-
-        /* ---------------- STATE LOGIC ---------------- */
-        async function saveState() {
-            const state = {};
-
-            columns.forEach(column => {
-                state[column.id] = [];
-                column.querySelectorAll(".task").forEach(task => {
-                    state[column.id].push(task.id);
-                });
-            });
-
-            await saveToStorage(STORAGE_KEY, state);
-        }
-
-        async function loadState() {
-            const state = await getFromStorage(STORAGE_KEY);
-            if (!state) return;
-
-            Object.keys(state).forEach(columnId => {
-                const column = document.getElementById(columnId);
-                if (!column) return;
-
-                state[columnId].forEach(taskId => {
-                    const task = document.getElementById(taskId);
-                    if (task) {
-                        column.appendChild(task);
-                    }
-                });
-            });
-        }
-
-        /* ---------------- INIT ---------------- */
-        async function init() {
-            await loadState();
-            addDragAndDrop();
-        }
-
-        init();
-    </script>
+</div>
+    <script type="module" src="./main.js"></script>
 </body>
 </html>
