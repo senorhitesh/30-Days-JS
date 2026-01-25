@@ -67,19 +67,48 @@ function updateCartUI() {
     cart.forEach(item => {
         const itemEl = document.createElement("div");
         itemEl.classList.add("cart-item");
+
         itemEl.innerHTML = `
             <div class="info">
                 <h4>${item.name}</h4>
-                <p>$${item.price} x ${item.qty}</p>
+                <p>$${item.price.toFixed(2)} x ${item.qty}</p>
             </div>
-            <div class="total">
+            
+            <div class="qty-controls">
+                <button onclick="changeQty(${item.id}, -1)">-</button>
+                <span>${item.qty}</span>
+                <button onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+            
+            <div class="price">
                 $${(item.price * item.qty).toFixed(2)}
             </div>
         `;
+  
         cartContainer.appendChild(itemEl);
+        calculateTotal()
     });
+}
 
-    if (cart.length === 0) {
-        emptymsg.textContent = `Your Brain has no Caffine ! Start Buying It`
+function changeQty(id, change) {
+    let product = cart.find((i) => i.id === id);
+
+    if (product) {
+        product.qty += change
     }
-}           
+    if (product.qty <= 0) {
+        alert("Are You Sure to Remove Coffee");
+        cart = cart.filter(id => id.id === id)
+    }
+    updateCartUI()
+}
+function calculateTotal() {
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const tax = subtotal * 0.10;
+  const total = subtotal + tax;
+
+  document.querySelector("#subtotal").innerText = `$${subtotal.toFixed(2)}`;
+  document.querySelector("#tax").innerText = `$${tax.toFixed(2)}`;
+  document.querySelector("#total").innerText = `$${total.toFixed(2)}`;
+}
+calculateTotal()
