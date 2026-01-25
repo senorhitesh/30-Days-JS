@@ -112,18 +112,14 @@ function calculateTotal() {
   document.querySelector("#total").innerText = `$${total.toFixed(2)}`;
 }
 calculateTotal()
-// Import jsPDF from the window object (because we added the CDN)
 const { jsPDF } = window.jspdf;
 
 function generatePDF() {
-    // 1. Create a new PDF document
     const doc = new jsPDF();
     
-    // 2. Set Initials
     let yPos = 20; // The "Cursor" Y position (starts at top)
     const margin = 10;
     
-    // --- HEADER ---
     doc.setFontSize(22);
     doc.text("Coffee Shop Receipt", margin, yPos);
     yPos += 10; // Move down
@@ -135,36 +131,28 @@ function generatePDF() {
     doc.line(margin, yPos, 200, yPos); // Horizontal Line
     yPos += 10;
 
-    // --- CART ITEMS LOOP ---
-    // This is the "Logic" part. We loop through data to write lines.
     doc.setFontSize(14);
     
     cart.forEach((item) => {
         const itemLine = `${item.name} (x${item.qty})`;
         const priceLine = `$${(item.price * item.qty).toFixed(2)}`;
         
-        // Write Name on Left
         doc.text(itemLine, margin, yPos);
-        
-        // Write Price on Right (roughly at x=160)
         doc.text(priceLine, 160, yPos);
         
         yPos += 10; // Move cursor down for next item
     });
 
-    // --- TOTALS ---
     yPos += 5;
-    doc.line(margin, yPos, 200, yPos); // Divider line
+    doc.line(margin, yPos, 200, yPos); 
     yPos += 10;
     
-    // Get the total from your existing HTML or recalculate
     const totalText = document.querySelector("#total").innerText;
     
     doc.setFontSize(16);
     doc.setFont("helvetica", "bold");
     doc.text(`GRAND TOTAL: ${totalText}`, margin, yPos);
     
-    // --- SAVE ---
     doc.save("Order_Receipt.pdf");
 }
 
