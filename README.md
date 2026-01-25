@@ -41,7 +41,7 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | **19** | [](../src/day19-Virtual-Data-Grid/) |DOM Virtualization (Windowing), Efficient Algorithms, and Large Dataset Management| ✅ Completed  |
 | **20** | [](../src/20-data-sanatizer/) | Object Manupulation, Classes | ✅ Completed  |
 | **21** | [](../src/21-StudentManager/) | Array Manupulation | ✅ Completed  |
-| **22** | [](../src/22-Coffee-POS/) | DOM Events (click), String Matching, and calculating WPM | ✅ Completed  |
+| **22** | [](../src/22-Coffee-POS/) | DOM Events (click), calcualtion | ✅ Completed  |
 
 
 

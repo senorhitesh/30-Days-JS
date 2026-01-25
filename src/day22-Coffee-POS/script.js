@@ -112,3 +112,14 @@ function calculateTotal() {
   document.querySelector("#total").innerText = `$${total.toFixed(2)}`;
 }
 calculateTotal()
+
+const payBtn = document.querySelector(".pay-btn")
+function printReceipt() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+    cart=[];
+    updateCartUI();
+}
+payBtn.addEventListener("click",printReceipt)
