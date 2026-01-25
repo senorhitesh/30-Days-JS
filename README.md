@@ -39,12 +39,11 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | **17** | [](../src/day17-Drawing-App/) | Canvas Api | ✅ Completed  |
 | **18** | [](../src/day18-Webcam-Photobooth/) | navigator.mediaDevices.getUserMedia | 🐛 WIP |
 | **19** | [](../src/day19-Virtual-Data-Grid/) |DOM Virtualization (Windowing), Efficient Algorithms, and Large Dataset Management| ✅ Completed  |
-<!-- | **20** | [](../src/20-Wpm-Calculator/) | DOM Events (input), String Matching, and calculating WPM | ✅ Completed  |
-| **21** | [](../src/21-Wpm-Calculator/) | DOM Events (input), String Matching, and calculating WPM | ✅ Completed  |
-| **22** | [](../src/22-Wpm-Calculator/) | DOM Events (input), String Matching, and calculating WPM | ✅ Completed  | -->
+| **20** | [](../src/20-data-sanatizer/) | Object Manupulation, Classes | ✅ Completed  |
+| **21** | [](../src/21-StudentManager/) | Array Manupulation | ✅ Completed  |
+| **22** | [](../src/22-Coffee-POS/) | DOM Events (click), String Matching, and calculating WPM | ✅ Completed  |
 
 
-*(I will update this table daily with links to the specific folder)*
 
 ## 📂 Project Structure
 I am using a Modular Monorepo approach to keep concerns separated:
