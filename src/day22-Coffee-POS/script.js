@@ -8,11 +8,11 @@ const products = [
 ];
 
 let cart = []; // The state of our bill
-console.log(cart)
 
 let displayedProducts = document.querySelector("#product-grid");
 let cartContainer = document.querySelector("#cart-items");
-let emptymsg = document.querySelector(".empty-msg")
+let emptymsg = document.querySelector(".empty-msg");
+
 function renderProducts() {
     products.forEach((obj) => {
         const productCard = document.createElement("div");

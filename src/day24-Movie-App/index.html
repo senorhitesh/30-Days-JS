@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day 20: Simple POS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .search-bar {
+            margin: 30px 0;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e50914;
+            /* Netflix Red */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* THE GRID SYSTEM */
+        .movie-grid {
+            display: grid;
+            /* Auto-fit creates as many columns as fit */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .movie-card {
+            background-color: #222;
+            /* Dark card background */
+            border-radius: 12px;
+            overflow: hidden;
+            /* Keeps the image corners rounded */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            /* Stacks Image on top of Text */
+            height: 100%;
+            /* Ensures all cards in a row are same height */
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            /* Lifts up slightly on hover */
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.4);
+            /* Red glow */
+        }
+
+        .poster-wrapper {
+            height: 300px;
+            /* Fixed height for uniformity */
+            overflow: hidden;
+        }
+
+        .poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 19/6;
+            /* Crops image cleanly if aspect ratio is wrong */
+        }
+
+        .movie-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            /* Pushes content to fill the card */
+        }
+
+        .movie-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .meta-data {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #aaa;
+            /* Grey text for less important info */
+            margin-top: auto;
+            /* Pushes year/type to the absolute bottom */
+        }
+
+        .type {
+            text-transform: capitalize;
+            /* "movie" -> "Movie" */
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🍿 Cinema Finder</h1>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for a movie (e.g. Batman)...">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <p id="statusMsg">Start by searching for a movie!</p>
+
+        <div class="movie-grid" id="movieGrid">
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
