@@ -101,7 +101,7 @@ async function getMovieCard(api2) {
 function renderSkeleton() {
     modalBody.innerHTML = `
          <div class="modal-header">
-            <img src="placeholder.jpg" class="skeleton skeleton-poster" alt="Poster">
+            <img src="https://i.pinimg.com/736x/ee/66/6c/ee666cf7832f93b66c9cbb5983a3d573.jpg" class="skeleton-Img"  alt="Poster">
 
             <div class="skeleton skeleton-title">
                 <h2Loading.....</h2>
@@ -129,8 +129,8 @@ function closeModal() {
     modalOverlay.style.display = "none";
 }
 window.onclick = (event) => {
-    if (event.target === modalOverlay) {
-        closeModal
+    if(event.target == modalOverlay){
+        closeModal();
     }
 }
 const debounce = (callback, wait) => {

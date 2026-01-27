@@ -29,19 +29,20 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | **07** | [Debounce](../src/day07-Debouncer/) | Debounce & Optimization | ✅ Completed |
 | **08** | [Parallel-API](../src/day08-Parallel-API-Calls/) | Promise.allSettled(), Speed  | ✅ Completed |
 | **09** | [Infinite_Image_Gallery](../src/Infinite_Image_Gallery/) | Pagination | ✅ Completed |
-| **10** | [](../src/day10-Weather-App/) | Api Call  | ✅ Completed |
-| **11** | [](../src/day11-LocalStroage-Manager/) | LocalStroage| ✅ Completed |
-| **12** | [](../src/day12-Draggble-Kanban/) | DOM Manupulation  | ✅ Completed |
-| **13** | [](../src/day13-Pomodoro-Timer/) | Time intervals, State Management, and Audio feedback.    | ✅ Completed |
-| **14** | [](../src/day14-Wpm-Calculator/) | DOM Events (input), String Matching, and calculating WPM | 🐛 WIP |
-| **15** | [](../src/day15-Voice-Notes/) | SpeechRecognition Api | ✅ Completed  |
-| **16** | [](../src/day16-Scroll-Animation/) | IntersectionObserver Api | ✅ Completed  |
-| **17** | [](../src/day17-Drawing-App/) | Canvas Api | ✅ Completed  |
-| **18** | [](../src/day18-Webcam-Photobooth/) | navigator.mediaDevices.getUserMedia | 🐛 WIP |
-| **19** | [](../src/day19-Virtual-Data-Grid/) |DOM Virtualization (Windowing), Efficient Algorithms, and Large Dataset Management| ✅ Completed  |
-| **20** | [](../src/20-data-sanatizer/) | Object Manupulation, Classes | ✅ Completed  |
-| **21** | [](../src/21-StudentManager/) | Array Manupulation | ✅ Completed  |
-| **22** | [](../src/22-Coffee-POS/) | DOM Events (click), calcualtion | ✅ Completed  |
+| **10** | [Weather App](../src/day10-Weather-App/) | Api Call  | ✅ Completed |
+| **11** | [Local Stroage App](../src/day11-LocalStroage-Manager/) | LocalStroage| ✅ Completed |
+| **12** | [Draggble Kanban](../src/day12-Draggble-Kanban/) | DOM Manupulation  | ✅ Completed |
+| **13** | [Pomodoro Timer](../src/day13-Pomodoro-Timer/) | Time intervals, State Management, and Audio feedback.    | ✅ Completed |
+| **14** | [Wpm Calculator](../src/day14-Wpm-Calculator/) | DOM Events (input), String Matching, and calculating WPM | 🐛 WIP |
+| **15** | [Voice Notes](../src/day15-Voice-Notes/) | SpeechRecognition Api | ✅ Completed  |
+| **16** | [Scroll Animation](../src/day16-Scroll-Animation/) | IntersectionObserver Api | ✅ Completed  |
+| **17** | [Drawing App](../src/day17-Drawing-App/) | Canvas Api | ✅ Completed  |
+| **18** | [Webcam Photobooth](../src/day18-Webcam-Photobooth/) | navigator.mediaDevices.getUserMedia | 🐛 WIP |
+| **19** | [Virtual Data Grid](../src/day19-Virtual-Data-Grid/) |DOM Virtualization (Windowing), Efficient Algorithms, and Large Dataset Management| ✅ Completed  |
+| **20** | [Data sanatizer](../src/20-data-sanatizer/) | Object Manupulation, Classes | ✅ Completed  |
+| **21** | [ Student Manager](../src/21-StudentManager/) | Array Manupulation | ✅ Completed  |
+| **22** | [Coffee POS](../src/22-Coffee-POS/) | DOM Events (click), calcualtion | ✅ Completed  |
+| **22** | [Movie App](../src/23-Movie-App/) | DOM Events (click), calcualtion | ✅ Completed  |
 
 
 
