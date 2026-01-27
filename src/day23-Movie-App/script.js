@@ -60,14 +60,12 @@ const modalBody = document.querySelector("#modalBody");
 
 async function getMovieCard(api2) {
     if (!api2) return;
-
+    modalOverlay.style.display = "flex";
+    renderSkeleton();
     try {
-
-        console.log("data load hote hue")
         const response = await fetch(api2);
         const dataCard = await response.json();
         renderCard(dataCard);
-        modalOverlay.style.display = "flex";
 
     } catch (error) {
         console.error("Error fetching details", error.message);
@@ -100,7 +98,33 @@ async function getMovieCard(api2) {
     `;
     document.getElementById("modalBody").innerHTML = content;
 }
+function renderSkeleton() {
+    modalBody.innerHTML = `
+         <div class="modal-header">
+            <img src="placeholder.jpg" class="skeleton skeleton-poster" alt="Poster">
 
+            <div class="skeleton skeleton-title">
+                <h2Loading.....</h2>
+                <div class="skeleton skeleton-text">
+                    <p><strong>Released:</strong> Loading.....</p>
+                    <p><strong>Genre:</strong> Loading.....</p>
+                </div>
+                <p><strong>Director:</strong> Loading.....</p>
+                <p><strong>Actors:</strong> Loading.....</p>
+
+                <div class="ratings">
+                    <span class="skeleton skeleton-text">⭐ Loading.....</span>
+                    <span class="skeleton skeleton-text">⏱ Loading.....</span>
+                    <span class="skeleton skeleton-text">Loading.....</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="skeleton skeleton-text">
+            <strong>Plot:</strong> Loading.....
+        </p>
+    `;
+}
 function closeModal() {
     modalOverlay.style.display = "none";
 }
