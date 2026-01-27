@@ -62,6 +62,8 @@ async function getMovieCard(api2) {
     if (!api2) return;
 
     try {
+
+        console.log("data load hote hue")
         const response = await fetch(api2);
         const dataCard = await response.json();
         renderCard(dataCard);
@@ -69,10 +71,6 @@ async function getMovieCard(api2) {
 
     } catch (error) {
         console.error("Error fetching details", error.message);
-    }
-    finally{
-        document.getElementById("modalBody").innerHTML = `
-        `
     }
 } function renderCard(details) {
     const content = `
