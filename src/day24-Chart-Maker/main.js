@@ -1,12 +1,13 @@
 const ctx = document.querySelector("#myChart");
-
 const addBtn = document.querySelector("#addBtn");
 const categoryInput = document.querySelector("#categoryInput");
 const amountInput = document.querySelector("#amountInput");
 const totalAmount = document.querySelector("#totalAmount");
 const descInput = document.querySelector("#descInput");
 
-let expenses = JSON.parse(localStorage.getItem("expence")) || [];
+// 1. LOAD DATA ON STARTUP
+// We try to get data. If null, we start with an empty array []
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 let myChart = new Chart(ctx, {
     type: 'bar',
@@ -35,53 +36,42 @@ function addExpense(e) {
     }
 
     const description = descInput.value.toString();
-    
     const spentAmount = Number(amountInput.value);
-    
     const category = categoryInput.value;
 
     let expenseObj = {
         desc: description,
         amount: spentAmount,
-        // 🔧 FIX 2: Rename 'cat' to 'category' so your filter works later
-        category: category 
+        category: category
     };
-    
+
+    // 2. ADD & SAVE
     expenses.push(expenseObj);
+    
+    // Convert the WHOLE array to a String and save it
+    localStorage.setItem("expenses", JSON.stringify(expenses));
     
     totalExpense();
     updateChartData();
-    localStorage.setItem("expence",JSON.stringify(expenses))
 }
 
 addBtn.addEventListener("click", addExpense);
 
 function totalExpense() {
-    // 🔧 FIX 3: Removed curly braces {} so it returns automatically
-    let total = expenses.reduce((sum, item) => sum + item.amount, 0)
-    
+    // 3. RECALCULATE (Don't save total separately, just calculate it from the list)
+    let total = expenses.reduce((sum, item) => sum + item.amount, 0);
     totalAmount.textContent = "$" + total; 
 }
 
 function updateChartData() {
-    // 🔧 FIX 5: Simplified syntax (removed curly braces)
-    const foodTotal = expenses
-        .filter(item => item.category === "Food")
-        .reduce((sum, item) => sum + item.amount, 0);
-
-    const rentTotal = expenses
-        .filter(item => item.category === "Rent")
-        .reduce((sum, item) => sum + item.amount, 0);
-
-    const entTotal = expenses
-        .filter(item => item.category === "Entertainment")
-        .reduce((sum, item) => sum + item.amount, 0);
-
-    const transTotal = expenses
-        .filter(item => item.category === "Transport")
-        .reduce((sum, item) => sum + item.amount, 0);
+    const foodTotal = expenses.filter(item => item.category === "Food").reduce((sum, item) => sum + item.amount, 0);
+    const rentTotal = expenses.filter(item => item.category === "Rent").reduce((sum, item) => sum + item.amount, 0);
+    const entTotal = expenses.filter(item => item.category === "Entertainment").reduce((sum, item) => sum + item.amount, 0);
+    const transTotal = expenses.filter(item => item.category === "Transport").reduce((sum, item) => sum + item.amount, 0);
 
     myChart.data.datasets[0].data = [foodTotal, rentTotal, entTotal, transTotal];
     myChart.update(); 
 }
 
+totalExpense();
+updateChartData();
