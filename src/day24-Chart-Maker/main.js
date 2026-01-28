@@ -6,7 +6,7 @@ const amountInput = document.querySelector("#amountInput");
 const totalAmount = document.querySelector("#totalAmount");
 const descInput = document.querySelector("#descInput");
 
-let expenses = [];
+let expenses = JSON.parse(localStorage.getItem("expence")) || [];
 
 let myChart = new Chart(ctx, {
     type: 'bar',
@@ -36,7 +36,6 @@ function addExpense(e) {
 
     const description = descInput.value.toString();
     
-    // 🔧 FIX 1: Convert String to Number immediately!
     const spentAmount = Number(amountInput.value);
     
     const category = categoryInput.value;
@@ -47,20 +46,20 @@ function addExpense(e) {
         // 🔧 FIX 2: Rename 'cat' to 'category' so your filter works later
         category: category 
     };
-
+    
     expenses.push(expenseObj);
     
     totalExpense();
     updateChartData();
+    localStorage.setItem("expence",JSON.stringify(expenses))
 }
 
 addBtn.addEventListener("click", addExpense);
 
 function totalExpense() {
     // 🔧 FIX 3: Removed curly braces {} so it returns automatically
-    let total = expenses.reduce((sum, item) => sum + item.amount, 0);
+    let total = expenses.reduce((sum, item) => sum + item.amount, 0)
     
-    // 🔧 FIX 4: Actually update the screen!
     totalAmount.textContent = "$" + total; 
 }
 
@@ -85,3 +84,4 @@ function updateChartData() {
     myChart.data.datasets[0].data = [foodTotal, rentTotal, entTotal, transTotal];
     myChart.update(); 
 }
+
