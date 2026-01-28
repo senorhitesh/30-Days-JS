@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 40px;
+            width: 800px;
+        }
+
+        /* Left Side */
+        .input-section {
+            flex: 1;
+        }
+
+        .balance-box {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input,
+        select,
+        button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #219150;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        /* Right Side */
+        .chart-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h2>💰 Expense Tracker</h2>
+
+            <div class="balance-box">
+                <small>Total Spent</small>
+                <h1 id="totalAmount">$0.00</h1>
+            </div>
+
+            <div class="form-group">
+                <input required type="text" id="descInput" placeholder="Description (e.g. Tacos)">
+                <input required type="number" id="amountInput" placeholder="Amount">
+                <select id="categoryInput">
+                    <option value="Food">Food 🍔</option>
+                    <option value="Rent">Rent 🏠</option>
+                    <option value="Entertainment">Fun 🎬</option>
+                    <option value="Transport">Travel 🚗</option>
+                </select>
+                <button id="addBtn" ">Add Expense</button>
+            </div>
+
+            <ul id="expenseList">
+            </ul>
+        </div>
+
+        <div class="chart-section">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
