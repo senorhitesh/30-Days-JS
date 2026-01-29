@@ -12,12 +12,12 @@ let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Food', 'Rent', 'Entertainment', 'Transport'],
+        labels: ['Food', 'Rent', 'Entertainment', 'Transport', 'Lend', 'Others'],
         datasets: [{
-            label: '# of Budget',
-            data: [0, 0, 0, 0],
+            label: 'Money Spent',
+            data: [0, 0, 0, 0, 100],
             borderWidth: 1,
-            backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0']
+            backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#4bc055','#644bc0' ]
         }]
     },
     options: {
@@ -47,10 +47,10 @@ function addExpense(e) {
 
     // 2. ADD & SAVE
     expenses.push(expenseObj);
-    
+
     // Convert the WHOLE array to a String and save it
     localStorage.setItem("expenses", JSON.stringify(expenses));
-    
+    console.log(expenses)
     totalExpense();
     updateChartData();
 }
@@ -60,7 +60,7 @@ addBtn.addEventListener("click", addExpense);
 function totalExpense() {
     // 3. RECALCULATE (Don't save total separately, just calculate it from the list)
     let total = expenses.reduce((sum, item) => sum + item.amount, 0);
-    totalAmount.textContent = "$" + total; 
+    totalAmount.textContent = "₹" + total;
 }
 
 function updateChartData() {
@@ -68,9 +68,11 @@ function updateChartData() {
     const rentTotal = expenses.filter(item => item.category === "Rent").reduce((sum, item) => sum + item.amount, 0);
     const entTotal = expenses.filter(item => item.category === "Entertainment").reduce((sum, item) => sum + item.amount, 0);
     const transTotal = expenses.filter(item => item.category === "Transport").reduce((sum, item) => sum + item.amount, 0);
+    const lend = expenses.filter(item => item.category === "Lend").reduce((sum, item) => sum + item.amount, 0);
+    const Others = expenses.filter(item => item.category === "Others").reduce((sum, item) => sum + item.amount, 0);
 
-    myChart.data.datasets[0].data = [foodTotal, rentTotal, entTotal, transTotal];
-    myChart.update(); 
+    myChart.data.datasets[0].data = [foodTotal, rentTotal, entTotal, transTotal, lend, Others];
+    myChart.update();
 }
 
 totalExpense();
