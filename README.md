@@ -43,6 +43,8 @@ I am challenging myself to solve 30 real-world logic problems in 30 days. The go
 | **21** | [ Student Manager](../src/21-StudentManager/) | Array Manupulation | ✅ Completed  |
 | **22** | [Coffee POS](../src/22-Coffee-POS/) | DOM Events (click), calcualtion | ✅ Completed  |
 | **22** | [Movie App](../src/23-Movie-App/) | DOM Events (click), calcualtion | ✅ Completed  |
+| **23** | [Chart App](../src/24-Chart-Maker/) | CRUD | ✅ Completed  |
+
 
 
 
