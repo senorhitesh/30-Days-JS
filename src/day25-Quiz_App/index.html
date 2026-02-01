@@ -1,11 +1,36 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./src/output.css" rel="stylesheet">
 </head>
-<body class="bg-black">
 
+<body class="bg-gray-900 text-white h-screen flex items-center justify-center">
+
+  <div id="quiz-container" class="flex flex-col items-center bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+
+    <div class="w-full flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-amber-500">Quiz App</h1>
+      <div class="border border-amber-500 px-4 py-2 rounded-full">
+        Time: <span id="time-left" class="font-mono font-bold">15</span>s
+      </div>
+    </div>
+
+    <h2 id="question-text" class="text-xl text-center mb-6">
+      Question will appear here...
+    </h2>
+
+    <div id="answer-buttons" class="grid grid-cols-1 gap-4 w-full">
+    </div>
+
+    <div id="controls" class="mt-6 w-full flex justify-center hidden">
+      <button id="next-btn" class="bg-blue-600 px-6 py-2 rounded text-white">Next</button>
+    </div>
+
+  </div>
+<script src="./src/script.js"></script>
 </body>
+
 </html>
