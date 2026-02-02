@@ -1,67 +1,95 @@
-function removeDuplicates(arr) {
-    let removeDuplicator = new Set(arr);
-    return removeDuplicatesss = [...removeDuplicator];
-}
-console.log(removeDuplicates([1, 2, 2, 3, 3, 3, 4, 5, 5]));
-console.log(removeDuplicates(["apple", "banana", "apple", "orange", "banana"]));
-console.log(removeDuplicates([1, 1, 1, 1]));
-
-
-function countCharacters(str) {
-    if (typeof str !== "string") {
-        throw new Error("Expected an String");
+class ContactBook {
+    constructor() {
+        this.contacts = new Map();
     }
-    let counts = new Map();
-    for (let character of str) {
-        if (counts.has(character)) {
-            counts.set(character, counts.get(character) + 1)
+    // Add contact
+    addContact(name, phone, email) {
+        let contact = {
+            phone: phone,
+            email: email
+        }
+        this.contacts.set(name, contact)
+
+    }
+
+    // Get contact
+    getContact(name) {
+        if (this.contacts.has(name)) {
+            return this.contacts.get(name)
+        }
+        return null
+    }
+
+    // Update phone
+    updatePhone(name, newPhone) {
+        if (this.contacts.has(name)) {
+            let contact = this.contacts.get(name)
+            contact.phone = newPhone;
+            this.contacts(name, contact)
+        }
+
+        else {
+            throw new Error("Please Enter a Valid Name")
+        }
+    }
+
+    deleteContact(name) {
+        if (this.contacts.has(name)) {
+            this.contacts.delete(name)
         }
         else {
-            counts.set(character, 1)
+            throw new Error("Please Enter a Valid Name")
         }
     }
-    return counts
+
+    // Search by partial name
+    searchByName(query) {
+
+        let result = [];
+        query  = query.toLowerCase();
+
+        for(let [name, contacts] of this.contacts){
+            if (name.toLowerCase().includes(query)){
+                result.push({
+                    name:name,
+                    email:contacts.email
+                })
+            }
+        }
+        return result
+    }
+
+    // Get all contacts
+    getAllContacts() {
+    let allContacts = [];
+
+    for(let [name, contact] of this.contacts){
+        allContacts.push({
+            name:name,
+            phone:contact.phone,
+            email:contact.email
+        })
+        return allContacts
+    }
+    }
+
+    // Get total count
+    getTotalContacts() {
+        return this.contacts.size
+    }
+
+    // Check if contact exists
+    hasContact(name) {
+        this.contacts.has(name)
+    }
 }
-console.log(countCharacters("hello"));
-console.log(countCharacters("javascript"));
 
-let naccho = "LULULUU"
+// Test
+let book = new ContactBook();
+book.addContact("Rahul", "9876543210", "rahul@email.com");
+book.addContact("Priya", "8765432109", "priya@email.com");
 
-function firstUnique(str) {
-    if (typeof str !== "string") {
-        throw new Error("Expected an String");
-    }  
-    let counts = new Map();
-    for(let characters of str) {
-        if(counts.has(characters)){
-            counts.set(characters, counts.get(characters)+1)
-        }
-        else{
-            counts.set(characters,1)
-        }
-    }
-    
-    for(let chara of str){
-        if(counts.get(chara) === 1){
-            return chara;
-        }
-    }
-  
-}
-console.log(firstUnique("leetcode"));     // "l"
-console.log(firstUnique("loveleetcode")); // "v"
-console.log(firstUnique("aabb"));         // null (all repeat)
-
-function hasCommonElement(arr1, arr2) {
- let set1 = new Set(arr1);
- for(let item of arr2){
-    if(set1.has(item)){
-        return true;
-    }
- }
-}
-
-console.log(hasCommonElement([1, 2, 3], [3, 4, 5]));  // true
-console.log(hasCommonElement([1, 2, 3], [4, 5, 6]));  // false
-console.log(hasCommonElement(['a', 'b'], ['b', 'c'])); // true
+console.log(book.getContact("Rahul"));
+console.log(book.searchByName("Ra"));  // Find all with "Ra"
+console.log(book.getTotalContacts());  // 2
 
