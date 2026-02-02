@@ -23,13 +23,12 @@ class ContactBook {
     // Update phone
     updatePhone(name, newPhone) {
         if (this.contacts.has(name)) {
-            let contact = this.contacts.get(name)
+            let contact = this.contacts.get(name);
             contact.phone = newPhone;
-            this.contacts(name, contact)
+            // No need to set back - it's already updated!
         }
-
         else {
-            throw new Error("Please Enter a Valid Name")
+            throw new Error("Please Enter a Valid Name");
         }
     }
 
@@ -46,13 +45,13 @@ class ContactBook {
     searchByName(query) {
 
         let result = [];
-        query  = query.toLowerCase();
+        query = query.toLowerCase();
 
-        for(let [name, contacts] of this.contacts){
-            if (name.toLowerCase().includes(query)){
+        for (let [name, contacts] of this.contacts) {
+            if (name.toLowerCase().includes(query)) {
                 result.push({
-                    name:name,
-                    email:contacts.email
+                    name: name,
+                    email: contacts.email
                 })
             }
         }
@@ -61,16 +60,17 @@ class ContactBook {
 
     // Get all contacts
     getAllContacts() {
-    let allContacts = [];
+        let allContacts = [];
 
-    for(let [name, contact] of this.contacts){
-        allContacts.push({
-            name:name,
-            phone:contact.phone,
-            email:contact.email
-        })
-        return allContacts
-    }
+        for (let [name, contact] of this.contacts) {
+            allContacts.push({
+                name: name,
+                phone: contact.phone,
+                email: contact.email
+            });
+        }
+
+        return allContacts;  // AFTER loop!
     }
 
     // Get total count
@@ -80,7 +80,7 @@ class ContactBook {
 
     // Check if contact exists
     hasContact(name) {
-        this.contacts.has(name)
+        return this.contacts.has(name)
     }
 }
 
